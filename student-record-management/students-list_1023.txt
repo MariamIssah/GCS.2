@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# File to save student records
+STUDENTS_FILE="students-list_1023.txt"
+
+# Function to create a student record
+create_record() {
+    echo "Enter student email:"
+    read email
+    echo "Enter student age:"
+    read age
+    echo "Enter student ID:"
+    read id
+    # Append the student record to "students-list_1023.txt"
+    echo "$email, $age, $id" >> "$STUDENTS_FILE"
+    echo "Student record created successfully."
+}
+
+# Function to view all student records
+view_records() {
+    echo "List of students:"
+    cat "$STUDENTS_FILE"
+}
+
+# Function to delete a student record by ID
+delete_record() {
+    echo "Enter student ID to delete:"
+    read id
+    # Delete the student record by ID
+    sed -i "/^$id,/d" "$STUDENTS_FILE"
+    echo "Student record deleted successfully."
+}
+
+# Function to update a student record by ID
+update_record() {
+    echo "Enter student ID to update:"
+    read id
+    # Prompt for new email and age
+    echo "Enter new email:"
+    read new_email
+    echo "Enter new age:"
+    read new_age
+    # Update the student record by ID
+    sed -i "s/^$id,.*/$new_email, $new_age, $id/" "$STUDENTS_FILE"
+    echo "Student record updated successfully."
+}
+
+# Main menu
+while true; do
+    echo "1. Create student record"
+    echo "2. View all students"
+    echo "3. Delete student record"
+    echo "4. Update student record"
+    echo "5. Exit"
+    read -p "Choose an option: " choice
+    case $choice in
+        1) create_record;;
+        2) view_records;;
+        3) delete_record;;
+        4) update_record;;
+        5) exit;;
+        *) echo "Invalid option";;
+    esac
+done
+
