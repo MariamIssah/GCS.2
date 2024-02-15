@@ -6,10 +6,10 @@ remote_server="2f05c1f8800b@2f05c1f8800b.3be8ebfc.alu-cod.online"
 remote_dir="/summative/1023-2024j/"
 
 #Source Directory
-source_dir="negpod_1-q1"
+source_dir="negpod_26-q1"
 
 #Backup Directory
-backup_dir="backup-negpod_1-q1"
+backup_dir="backup-negpod_26-q1"
 
 #create_dir
 mkdir "$backup_dir"
