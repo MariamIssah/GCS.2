@@ -16,4 +16,4 @@ if [ $? -eq 0 ]; then
     echo "Backup successful."
 else
     echo "Backup failed. Please check the logs."
-fssssi
+fsssssi
