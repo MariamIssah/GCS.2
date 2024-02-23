@@ -55,4 +55,3 @@ while true; do
         *) echo "Invalid option";;
     esac
 done
-
